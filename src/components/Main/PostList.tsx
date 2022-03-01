@@ -1,17 +1,18 @@
-import styled from '@emotion/styled';
-import React, { FunctionComponent, useMemo } from 'react';
-import PostItem from './PostItem';
-import { PostListItemType } from 'types/PostItem.types';
+import styled from "@emotion/styled";
+import React, { FunctionComponent, useMemo } from "react";
+import PostItem from "./PostItem";
+import { PostListItemType } from "types/PostItem.types";
+import useInfiniteScroll from "hooks/useInfiniteScroll";
 
 const POST_ITEM_DATA = {
-  title: 'Post Item Title',
-  date: '2022.02.23',
-  categories: ['Web', 'Frontend', 'Testing'],
+  title: "Post Item Title",
+  date: "2022.02.23",
+  categories: ["Web", "Frontend", "Testing"],
   summary:
-    '안녕하세요. 최정은입니다. 아 진짜 귀찮다 로또 당첨됐으면 좋겠다. 그럼 이만.',
+    "안녕하세요. 최정은입니다. 아 진짜 귀찮다 로또 당첨됐으면 좋겠다. 그럼 이만.",
   thumbnail:
-    'https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/cnoC/image/4yPtuRXtR0-jusOMCCXb4MeN6zU.jpg',
-  link: 'www.naver.com',
+    "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/cnoC/image/4yPtuRXtR0-jusOMCCXb4MeN6zU.jpg",
+  link: "www.naver.com",
 };
 
 type PostListProps = {
@@ -23,21 +24,21 @@ const PostList: FunctionComponent<PostListProps> = ({
   selectedCategory,
   posts,
 }) => {
-  const filterPosts = useMemo(() => {
-    if (selectedCategory === 'All') {
-      return posts;
-    } else {
-      return posts.filter(post =>
-        post.node.frontmatter.categories.includes(selectedCategory),
-      );
-    }
-  }, [selectedCategory]);
+  const { containerRef, postList } = useInfiniteScroll(selectedCategory, posts);
 
   return (
-    <PostListWrapper>
-      {filterPosts.map(({ node: { id, frontmatter } }) => (
-        <PostItem {...frontmatter} link="www.naver.com" key={id} />
-      ))}
+    <PostListWrapper ref={containerRef}>
+      {postList.map(
+        ({
+          node: {
+            id,
+            fields: { slug },
+            frontmatter,
+          },
+        }) => (
+          <PostItem {...frontmatter} link={slug} key={id} />
+        )
+      )}
     </PostListWrapper>
   );
 };

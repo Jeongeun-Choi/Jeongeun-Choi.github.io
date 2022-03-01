@@ -1,15 +1,15 @@
-import React, { FunctionComponent, useMemo } from 'react';
-import { graphql } from 'gatsby';
-import queryString, { ParsedQuery } from 'query-string';
-import styled from '@emotion/styled';
-import GlobalStyle from 'components/Common/GlobalStyle';
-import ProfileImage from 'components/Main/ProfileImage';
-import Introduction from 'components/Main/Introduction';
-import Footer from 'components/Common/Footer';
-import CategoryList, { CategoryListProps } from 'components/Main/CategoryList';
-import PostList from 'components/Main/PostList';
-import { PostListItemType } from 'types/PostItem.types';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import React, { FunctionComponent, useMemo } from "react";
+import { graphql } from "gatsby";
+import queryString, { ParsedQuery } from "query-string";
+import styled from "@emotion/styled";
+import GlobalStyle from "components/Common/GlobalStyle";
+import ProfileImage from "components/Main/ProfileImage";
+import Introduction from "components/Main/Introduction";
+import Footer from "components/Common/Footer";
+import CategoryList, { CategoryListProps } from "components/Main/CategoryList";
+import PostList from "components/Main/PostList";
+import { PostListItemType } from "types/PostItem.types";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 const CATEGORY_LIST = {
   All: 5,
@@ -44,35 +44,35 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 }) {
   const parsed: ParsedQuery<string> = queryString.parse(search);
   const selectedCategory: string =
-    typeof parsed.category !== 'string' || !parsed.category
-      ? 'All'
+    typeof parsed.category !== "string" || !parsed.category
+      ? "All"
       : parsed.category;
 
   const categoryList = useMemo(
     () =>
       edges.reduce(
         (
-          list: CategoryListProps['categoryList'],
+          list: CategoryListProps["categoryList"],
           {
             node: {
               frontmatter: { categories },
             },
-          }: PostListItemType,
+          }: PostListItemType
         ) => {
-          categories.forEach(category => {
+          categories.forEach((category) => {
             if (list[category] === undefined) {
               list[category] = 1;
             } else {
               list[category] += 1;
             }
           });
-          list['All'] += 1;
+          list["All"] += 1;
 
           return list;
         },
-        { All: 0 },
+        { All: 0 }
       ),
-    [],
+    []
   );
 
   return (
@@ -105,6 +105,9 @@ export const getPostList = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
