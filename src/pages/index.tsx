@@ -10,6 +10,7 @@ import CategoryList, { CategoryListProps } from "components/Main/CategoryList";
 import PostList from "components/Main/PostList";
 import { PostListItemType } from "types/PostItem.types";
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import Template from "components/Common/Template";
 
 const CATEGORY_LIST = {
   All: 5,
@@ -76,24 +77,16 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   );
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Template>
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
-      <Footer />
-    </Container>
+    </Template>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`;
 
 export default IndexPage;
 
