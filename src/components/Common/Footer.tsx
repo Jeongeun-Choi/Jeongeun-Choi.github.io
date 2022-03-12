@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import React, { FunctionComponent } from 'react';
+import styled from "@emotion/styled";
+import React, { FunctionComponent } from "react";
 
 const Footer: FunctionComponent = () => {
   return (
@@ -10,7 +10,7 @@ const Footer: FunctionComponent = () => {
   );
 };
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
   display: grid;
   place-items; center;
   margin-top: auto;
