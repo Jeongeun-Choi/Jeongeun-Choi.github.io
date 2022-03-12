@@ -1,12 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `프론트엔드 개발자의 하루`,
+    description: `연습도 실전처럼! 뭐든지 열심히하는 개발자`,
+    author: `@Jeongeun-Choi`,
+    siteUrl: "https://test.com",
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-typescript',
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://test.com",
+        stripQueryString: true,
+      },
+    },
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-typescript",
       options: {
         isTSX: true,
         allExtensions: true,
@@ -14,6 +23,12 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,9 +49,9 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: ['auto', 'webp'],
+          formats: ["auto", "webp"],
           quality: 100,
-          placeholder: 'blurred',
+          placeholder: "blurred",
         },
       },
     },
@@ -45,19 +60,19 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-smartypants',
+            resolve: "gatsby-remark-smartypants",
             options: {
-              dashes: 'oldschool',
+              dashes: "oldschool",
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: "gatsby-remark-prismjs",
             options: {
-              classPrefix: 'language-',
+              classPrefix: "language-",
             },
           },
           {
-            resolve: 'gatsby-remark-images',
+            resolve: "gatsby-remark-images",
             options: {
               maxWidth: 768,
               quality: 100,
@@ -65,14 +80,14 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: "gatsby-remark-copy-linked-files",
             options: {},
           },
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: '_blank',
-              rel: 'nofollow',
+              target: "_blank",
+              rel: "nofollow",
             },
           },
         ],
