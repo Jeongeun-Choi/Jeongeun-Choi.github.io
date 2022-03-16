@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://jeongeun.github.io/sitemap/sitemap-index.xml
-Host: https://jeongeun.github.io
+Sitemap: https://jeongeun-choi.github.io/sitemap/sitemap-index.xml
+Host: https://jeongeun-choi.github.io
