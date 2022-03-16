@@ -3,13 +3,13 @@ module.exports = {
     title: `프론트엔드 개발자의 하루`,
     description: `연습도 실전처럼! 뭐든지 열심히하는 개발자`,
     author: `@Jeongeun-Choi`,
-    siteUrl: "https://test.com",
+    siteUrl: "https://jeongeun-choi.github.io/",
   },
   plugins: [
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: "https://test.com",
+        siteUrl: "https://jeongeun-choi.github.io/",
         stripQueryString: true,
       },
     },
