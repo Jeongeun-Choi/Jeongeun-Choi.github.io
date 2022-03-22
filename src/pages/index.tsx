@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo, useRef } from "react";
+import React, { FunctionComponent, useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
 import queryString, { ParsedQuery } from "query-string";
 import Introduction from "components/Main/Introduction";
@@ -8,6 +8,7 @@ import { PostListItemType } from "types/PostItem.types";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import Template from "components/Common/Template";
 import ScrollUpButton from "components/Common/ScrollUpButton";
+import SearchBar from "components/Main/SearchBar";
 
 type IndexPageProps = {
   location: {
@@ -46,6 +47,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
+  const [searchText, setSearchText] = useState<string>("");
   const parsed: ParsedQuery<string> = queryString.parse(search);
   const selectedCategory: string =
     typeof parsed.category !== "string" || !parsed.category
@@ -87,6 +89,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       image={publicURL}
     >
       <Introduction profileImage={gatsbyImageData} />
+      <SearchBar />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
