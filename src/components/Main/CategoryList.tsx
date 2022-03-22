@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React, { FunctionComponent, ReactNode } from 'react';
+import styled from "@emotion/styled";
+import { Link } from "gatsby";
+import React, { FunctionComponent, ReactNode } from "react";
 
 export type CategoryListProps = {
   selectedCategory: string;
@@ -57,7 +57,7 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   margin-right: 20px;
   padding: 5px 0;
   font-size: 18px;
-  font-weight: ${({ active }) => (active ? '800' : '400')};
+  font-weight: ${({ active }) => (active ? "800" : "400")};
   cursor: pointer;
 
   &:last-of-type {

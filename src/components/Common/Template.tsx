@@ -56,7 +56,6 @@ const Template: FunctionComponent<TemplateProps> = ({
     </Container>
   );
 };
-
 export default Template;
 
 const Container = styled.main`

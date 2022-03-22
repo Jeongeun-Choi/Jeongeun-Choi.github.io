@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import React, { FunctionComponent } from 'react';
-import { PostFrontmatterType } from 'types/PostItem.types';
+import styled from "@emotion/styled";
+import { Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React, { FunctionComponent } from "react";
+import { PostFrontmatterType } from "types/PostItem.types";
 
 type PostItemProps = PostFrontmatterType & { link: string };
 
@@ -23,7 +23,7 @@ const PostItem: FunctionComponent<PostItemProps> = ({
         <Title>{title}</Title>
         <Date>{date}</Date>
         <Category>
-          {categories.map(category => (
+          {categories.map((category) => (
             <CategoryItem key={category}>{category}</CategoryItem>
           ))}
         </Category>
@@ -92,7 +92,7 @@ const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 5px;
   border-radius: 3px;
-  background: black;
+  background: #3d405b;
   font-size: 14px;
   font-weight: 700;
   color: white;

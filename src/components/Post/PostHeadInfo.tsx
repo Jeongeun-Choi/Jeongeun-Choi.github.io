@@ -35,7 +35,7 @@ export default PostHeadInfo;
 const PostHeadInfoWrppaer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 768px;
+  width: 70%;
   height: 100%;
   margin: 0 auto;
   padding: 60px 0;

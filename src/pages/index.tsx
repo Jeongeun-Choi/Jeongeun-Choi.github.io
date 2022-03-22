@@ -1,22 +1,13 @@
-import React, { FunctionComponent, useMemo } from "react";
+import React, { FunctionComponent, useMemo, useRef } from "react";
 import { graphql } from "gatsby";
 import queryString, { ParsedQuery } from "query-string";
-import styled from "@emotion/styled";
-import GlobalStyle from "components/Common/GlobalStyle";
-import ProfileImage from "components/Main/ProfileImage";
 import Introduction from "components/Main/Introduction";
-import Footer from "components/Common/Footer";
 import CategoryList, { CategoryListProps } from "components/Main/CategoryList";
 import PostList from "components/Main/PostList";
 import { PostListItemType } from "types/PostItem.types";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import Template from "components/Common/Template";
-
-const CATEGORY_LIST = {
-  All: 5,
-  Web: 3,
-  Mobile: 2,
-};
+import ScrollUpButton from "components/Common/ScrollUpButton";
 
 type IndexPageProps = {
   location: {
@@ -101,6 +92,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
+      <ScrollUpButton />
     </Template>
   );
 };

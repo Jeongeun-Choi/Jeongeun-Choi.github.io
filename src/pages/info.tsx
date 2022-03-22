@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { graphql } from 'gatsby';
-import { Global, css } from '@emotion/react';
-import styled from '@emotion/styled';
+import React, { FunctionComponent } from "react";
+import { graphql } from "gatsby";
+import { Global, css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 interface InfoPageProps {
   data: {
@@ -53,13 +53,13 @@ const TextStyle = css`
 const Text1 = styled.div<{ disable: boolean }>`
   font-size: 20px;
   font-weight: 700;
-  text-decoration: ${({ disable }) => (disable ? 'line-through' : 'none')};
+  text-decoration: ${({ disable }) => (disable ? "line-through" : "none")};
 `;
 
-const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
-  fontSize: '15px',
-  color: 'blue',
-  textDecoration: disable ? 'line-through' : 'none',
+const Text2 = styled("div")<{ disable: boolean }>(({ disable }) => ({
+  fontSize: "15px",
+  color: "blue",
+  textDecoration: disable ? "line-through" : "none",
 }));
 export const metadataQuery = graphql`
   {
